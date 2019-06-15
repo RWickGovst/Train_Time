@@ -1,17 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
-
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Train Time</title>
 </head>
+
 <body>
-    <script>
-        
-    </script>
-</body>
+
+    <body>
+        <div class="container">
+            <!-- Page Content goes here -->
+
+            <div class="col s12 m8 offset-m2 l6 offset-l3">
+                <div class="card-panel grey lighten-5 z-depth-1">
+                    <div class="row valign-wrapper">
+                        <div class="col s2">
+                            <img src="./Train.jpg" alt="" class="circle responsive-img">
+                            <!-- notice the "circle" class -->
+                        </div>
+                        <div class="col s10">
+                            <span class="black-text">
+                                You Can't Stop A Train
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>Here's Your Train Schedule</tr>
+
+                    <tr>
+
+                        <th>Train Name</th>
+                        <th>Final Destination</th>
+                        <th>Frequency (Minutes)</th>
+                        <th>Next Arrival</th>
+                        <th>Minutes Away</th>
+
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td id="name"></td>
+                        <td id="destination"></td>
+                        <td id="frequency"></td>
+                        <td id="nextTrain"></td>
+                        <td id="timeUntil"></td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="train-name" type="text" class="validate">
+                            <label for="train-name">Train Name</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="final-destination" type="text" class="validate">
+                            <label for="final-destination">Final Destination</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="first-time" type="text" class="validate">
+                            <label for="first-time">First Train Time (in military time HH:MM</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="frequency" type="text" class="validate">
+                            <label for="frequency">Frequency (minutes)</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </body>
+
 </html>

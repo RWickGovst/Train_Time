@@ -9,6 +9,9 @@
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+
     <title>Train Time</title>
 </head>
 
@@ -19,11 +22,10 @@
             <!-- Page Content goes here -->
 
             <div class="col s12 m8 offset-m2 l6 offset-l3">
-                <div class="card-panel grey lighten-5 z-depth-1">
+                <div class="card-panel grey lighten-5 z-depth-2">
                     <div class="row valign-wrapper">
                         <div class="col s2">
                             <img src="./Train.jpg" alt="" class="circle responsive-img">
-                            <!-- notice the "circle" class -->
                         </div>
                         <div class="col s10">
                             <span class="black-text">
@@ -39,14 +41,11 @@
                     <tr>Here's Your Train Schedule</tr>
 
                     <tr>
-
                         <th>Train Name</th>
                         <th>Final Destination</th>
                         <th>Frequency (Minutes)</th>
                         <th>Next Arrival</th>
                         <th>Minutes Away</th>
-
-
                     </tr>
                 </thead>
 
@@ -62,7 +61,20 @@
                 </tbody>
 
             </table>
-
+            <div class="col s12 m8 offset-m2 l6 offset-l3">
+                    <div class="card-panel grey lighten-5 z-depth-2">
+                        <div class="row valign-wrapper">
+                            <div class="col s2">
+                                <img src="./Train.jpg" alt="" class="circle responsive-img">
+                            </div>
+                            <div class="col s10">
+                                <span class="black-text">
+                                    Add A Train To The Schedule
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             <div class="row">
                 <form class="col s12">
                     <div class="row">
@@ -97,7 +109,11 @@
             </div>
 
         </div>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="./train.js"></script>
+    <script type="text/javascript">
+    </script>
     </body>
 
 </html>

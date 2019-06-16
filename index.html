@@ -5,13 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    
-    <link rel="stylesheet" type="text/css" href="style.css">
-    
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
 
@@ -67,19 +65,19 @@
 
             </table>
             <div class="col s12 m8 offset-m2 l6 offset-l3">
-                    <div class="card-panel grey lighten-5 z-depth-2">
-                        <div class="row valign-wrapper">
-                            <div class="col s2">
-                                <img src="./train2.jpg" alt="" class="circle responsive-img">
-                            </div>
-                            <div class="col s10">
-                                <span class="black-text">
-                                    Add A Train To The Schedule
-                                </span>
-                            </div>
+                <div class="card-panel grey lighten-5 z-depth-2">
+                    <div class="row valign-wrapper">
+                        <div class="col s2">
+                            <img src="./train2.jpg" alt="" class="circle responsive-img">
+                        </div>
+                        <div class="col s10">
+                            <span class="black-text">
+                                Add A Train To The Schedule
+                            </span>
                         </div>
                     </div>
                 </div>
+            </div>
             <div class="row">
                 <form class="col s12">
                     <div class="row">
@@ -101,11 +99,11 @@
                         </div>
                     </div>
                     <div class="row">
-                            <div class="input-field col s6">
-                                <input id="howOften" type="text" class="validate">
-                                <label for="howOften">Frequency (mins)</label>
-                            </div>
+                        <div class="input-field col s6">
+                            <input id="howOften" type="text" class="validate">
+                            <label for="howOften">Frequency (mins)</label>
                         </div>
+                    </div>
                     <div class="row">
                         <button class="btn waves-effect waves-light" id="add-train" type="submit" name="action">Submit
                         </button>
@@ -115,11 +113,25 @@
 
         </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <script src="./train.js"></script>
-    <script type="text/javascript">
-    </script>
-   
+       <!-- jquery link -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<!-- materialize js -->
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<!-- custom js -->
+<script src="train.js"></script>
+<script>
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
     </body>
 
 </html>

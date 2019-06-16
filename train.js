@@ -4,7 +4,7 @@
 // add the train to the database
 // show schedule elements in real time
 $(document).ready(function(){
-    $('select').formSelect();
+    // $('select').formSelect();
   
 
 var firebaseConfig = {
@@ -23,22 +23,23 @@ var database = firebase.database();
 
 //   variables here
 // Initial Values
-var name = "";
-var destination = "";
-var firstTrain = "";
-var howOften = "";
+// var name = "";
+// var destination = "";
+// var firstTrain = "";
+// var howOften = "";
 // var nextTrain = "";
 // var timeUntil = "";
 
 
 $("#add-train").on("click", function (event) {
     event.preventDefault();
-    // record timestamp
+    console.log("on click event");
+    
     // Grabbed values from text boxes
-    name = $("#train-name").val();
-    destination = $("#final-destination").val();
-    firstTrain = $("#first-time").val();
-    howOften = $("#howOften").val();
+    var name = $("#train-name").val();
+    var destination = $("#final-destination").val();
+    var firstTrain = $("#first-time").val();
+    var howOften = $("#howOften").val();
     // nextTrain = $("#nextTrain").val();
     // timeUntil = $("#timeUntil").val();
 
@@ -47,14 +48,23 @@ $("#add-train").on("click", function (event) {
     console.log(firstTrain);
     console.log(howOften);
 
+    // var trainInfo = {
+    //     trainName: name,
+    //     FinalDestination: destination,
+    //     firstTrainInfo: firstTrain,
+    //     frequency: howOften
+    // }
     // Code for handling the push
     database.ref().push({
+        // trainInfo,
         name: name,
         destination: destination,
         firstTrain: firstTrain,
         howOften: howOften,
         // nextTrain: nextTrain,
-        // timeUntil: timeUntil
+        // timeUntil: timeUntil,
+        // record timestamp
+        dateAdded: firebase.database.ServerValue.TIMESTAMP
     });
 
 });
@@ -65,10 +75,10 @@ database.ref().on("child_added", function (snapshot) {
     var sv = snapshot.val();
 
     // Change the HTML to reflect
-    $("#train-name").text(sv.name);
-    $("#final-destination").text(sv.destination);
-    $("#first-time").text(sv.firstTrain);
-    $("#howOften").text(sv.howOften);
+    $("#train").text(sv.name);
+    $("#destination").text(sv.destination);
+    $("#time").text(sv.firstTrain);
+    $("#frequency").text(sv.howOften);
     // $("#nextTrain").text(sv.nextTrain);
     // $("timeUntil").text(sv.timeUntil);
 

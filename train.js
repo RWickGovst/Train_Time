@@ -23,10 +23,10 @@ var database = firebase.database();
 
 //   variables here
 // Initial Values
-// var name = "";
-// var destination = "";
-// var firstTrain = "";
-// var howOften = "";
+var name = "";
+var destination = "";
+var firstTrain = "";
+var howOften = "";
 // var nextTrain = "";
 // var timeUntil = "";
 
@@ -36,10 +36,10 @@ $("#add-train").on("click", function (event) {
     console.log("on click event");
     
     // Grabbed values from text boxes
-    var name = $("#train-name").val();
-    var destination = $("#final-destination").val();
-    var firstTrain = $("#first-time").val();
-    var howOften = $("#howOften").val();
+     name = $("#train-name").val();
+     destination = $("#final-destination").val();
+     firstTrain = $("#first-time").val();
+     howOften = $("#howOften").val();
     // nextTrain = $("#nextTrain").val();
     // timeUntil = $("#timeUntil").val();
 
@@ -48,13 +48,8 @@ $("#add-train").on("click", function (event) {
     console.log(firstTrain);
     console.log(howOften);
 
-    // var trainInfo = {
-    //     trainName: name,
-    //     FinalDestination: destination,
-    //     firstTrainInfo: firstTrain,
-    //     frequency: howOften
-    // }
     // Code for handling the push
+    
     database.ref().push({
         // trainInfo,
         name: name,
@@ -65,12 +60,29 @@ $("#add-train").on("click", function (event) {
         // timeUntil: timeUntil,
         // record timestamp
         dateAdded: firebase.database.ServerValue.TIMESTAMP
+    
     });
-
+formClear();
 });
+// function scheduleUpdate() {
+//     if ($("#train-name").val() != null &&
+//         $("#train-name").val() != '') {
+//       // Add product to Table
+//       addToSchedule();
+//       // Clear form fields
+//       formClear();
+//       // Focus to product name field
+//     //   $("#train").focus();
+    
+//   }
+function formClear() {
+    $("#train-name").val("");
+    $("#final-destination").val("");
+    $("#first-time").val("");
+    $("#howOften").val("");
+  }
+  database.ref().on("child_added", function (snapshot) {
 
-// Firebase watcher .on("child_added"
-database.ref().on("child_added", function (snapshot) {
     // storing the snapshot.val() in a variable for convenience
     var sv = snapshot.val();
 
@@ -82,8 +94,10 @@ database.ref().on("child_added", function (snapshot) {
     // $("#nextTrain").text(sv.nextTrain);
     // $("timeUntil").text(sv.timeUntil);
 
+
     // Handle the errors
 }, function (errorObject) {
     console.log("Errors handled: " + errorObject.code);
 });
 });
+

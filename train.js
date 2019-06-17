@@ -33,7 +33,7 @@ var howOften = "";
 
 $("#add-train").on("click", function (event) {
     event.preventDefault();
-    console.log("on click event");
+    // console.log("on click event");
     
     // Grabbed values from text boxes
      name = $("#train-name").val();
@@ -43,10 +43,10 @@ $("#add-train").on("click", function (event) {
     // nextTrain = $("#nextTrain").val();
     // timeUntil = $("#timeUntil").val();
 
-    console.log(name);
-    console.log(destination);
-    console.log(firstTrain);
-    console.log(howOften);
+    // console.log(name);
+    // console.log(destination);
+    // console.log(firstTrain);
+    // console.log(howOften);
 
     // Code for handling the push
     

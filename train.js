@@ -104,7 +104,7 @@ $(document).ready(function () {
         // console.log(firstTimeConverted);
 
         // Current Time
-        var currentTime = moment();
+        var currentTime = moment().format('HH:mm');
         // console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
 
         // Difference between the times
@@ -117,11 +117,15 @@ $(document).ready(function () {
 
         // Minute Until Train
         timeUntilNext = tFrequency - tRemainder;
-        console.log("MINUTES TILL TRAIN: " + timeUntilNext);
+        // console.log("MINUTES TILL TRAIN: " + timeUntilNext);
 
         // Next Train
         nextTrainArrival = moment().add(timeUntilNext, "minutes");
-        console.log("ARRIVAL TIME: " + moment(nextTrainArrival).format("HH:mm"));
+        // console.log("ARRIVAL TIME: " + moment(nextTrainArrival).format("HH:mm"));
+        // var timeToNext = parseInt(timeUntilNext);
+        
+        // console.log(timeUntilNext);
+        // console.log(nextTrainArrival);
 
         return timeUntilNext, nextTrainArrival;
     }

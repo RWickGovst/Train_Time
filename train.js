@@ -37,61 +37,56 @@ $(document).ready(function () {
         // console.log("on click event");
 
         // Grabbed values from text boxes
-        name = $("#train-name").val();
-        destination = $("#final-destination").val();
-        firstTrain = $("#first-time").val();
+        name = $("#train-name").val().trim();
+        destination = $("#final-destination").val().trim();
+        firstTrain = moment($("#first-time").val().trim(), "HH:mm").format("LT");
         howOften = $("#howOften").val();
-        calculations(firstTrain, howOften);
+        
         // console.log(name);
         // console.log(destination);
         // console.log(firstTrain);
         // console.log(howOften);
-        database.ref().push({
-            // trainInfo,
+        var newTrain = {
             name: name,
             destination: destination,
             firstTrain: firstTrain,
             howOften: howOften,
-            // nextTrain: nextTrainArrival,
-            // timeUntil: timeUntilNext,
-            // record timestamp
             dateAdded: firebase.database.ServerValue.TIMESTAMP
+        };
 
+        database.ref().push(newTrain);
+            
+            formClear();
         });
-        
 
-        
-        formClear();
-    });
-    // function scheduleUpdate() {
-    //     if ($("#train-name").val() != null &&
-    //         $("#train-name").val() != '') {
-    //       // Add product to Table
-    //       addToSchedule();
-    //       // Clear form fields
-    //       formClear();
-    //       // Focus to product name field
-    //     //   $("#train").focus();
-
-    //   }
     database.ref().on("child_added", function (snapshot) {
             
         // storing the snapshot.val() in a variable for convenience
         var sv = snapshot.val();
         
         // Change the HTML to reflect
-        $("#train").text(sv.name);
-        $("#destination").text(sv.destination);
-        $("#time").text(sv.firstTrain);
-        $("#frequency").text(sv.howOften);
-        $("#nextTrain").text(sv.nextTrainArrival);
-        $("#timeUntil").text(sv.timeUntilNext);
+        var trainName = snapshot.val().name;
+        var newDestination = snapshot.val().destination;
+        var startTrain = snapshot.val().firstTrain;
+        var timeBetween = snapshot.val().howOften;
+
+        calculations();
+        
+        var newRow = $("<tr>").prepend(
+            $("<td>").text(trainName),
+            $("<td>").text(newDestination),
+            $("<td>").text(startTrain),
+            $("<td>").text(timeBetween),
+            $("<td>").text(nextTrainArrival),
+            $("<td>").text(timeUntilNext)
+        );
+
+        $("#trainSchedule > tbody").prepend(newRow);
 
         // Handle the errors
     }, function (errorObject) {
         console.log("Errors handled: " + errorObject.code);
     });
-    
     
     function formClear() {
         $("#train-name").val("");
@@ -99,6 +94,7 @@ $(document).ready(function () {
         $("#first-time").val("");
         $("#howOften").val("");
     }
+    
     function calculations(){
         var tFrequency = howOften;
         var firstTime = firstTrain;
@@ -125,9 +121,9 @@ $(document).ready(function () {
 
         // Next Train
         nextTrainArrival = moment().add(timeUntilNext, "minutes");
-        console.log("ARRIVAL TIME: " + moment(nextTrainArrival).format("hh:mm"));
+        console.log("ARRIVAL TIME: " + moment(nextTrainArrival).format("HH:mm"));
 
         return timeUntilNext, nextTrainArrival;
     }
-});
 
+});
